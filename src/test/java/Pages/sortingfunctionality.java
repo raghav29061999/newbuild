@@ -1,6 +1,7 @@
 package Pages;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -56,7 +57,11 @@ WebDriver driver;
 		}
 		System.out.println("three");
 		//compare the prices
-		Assert.assertEquals(beforeFilterPriceList, afterFilterPriceList);
+		if(beforeFilterPriceList == afterFilterPriceList)
+			throw new IllegalStateException("Sorting Not happened");
+		else
+			System.out.println("Sorting Happened");
+				
 		
 		
 		

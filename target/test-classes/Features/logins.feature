@@ -15,3 +15,11 @@ Feature: Feature to test end to end functionality of a website to order mobile p
     When User selects the Sort By dropdown
     And User Selects option sort by name from dropdown
     Then Products are sorted by name
+
+  Scenario: To verify the price of the mobile.
+    Given user is on the mobiles page. Step2
+    And user notes the price of Sony Experia.
+    When user clicks the Sony Experia mobile.
+    Then user is navigated to Page Sony Xperia - Mobile.
+    And user checks the price of mobile here.
+    Then user comapres the two prices.

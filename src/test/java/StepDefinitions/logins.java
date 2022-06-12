@@ -5,6 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import Pages.HomePage;
 import Pages.MobilePageNavigation;
+import Pages.priceverification;
 import Pages.sortingfunctionality;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -18,6 +19,7 @@ public class logins {
 	HomePage title;
 	MobilePageNavigation nav;
 	sortingfunctionality sorted;
+	priceverification verifyprice;
 	
 	
 	@Given("User is on the browser")
@@ -98,5 +100,47 @@ public class logins {
 	    // Write code here that turns the phrase above into concrete actions
 	   sorted.toSort();
 	}
+	
+	@Given("user is on the mobiles page. Step2")
+	public void user_is_on_the_mobiles_pageStep2() {
+	    // Write code here that turns the phrase above into concrete actions
+	   verifyprice = new priceverification(driver);
+	   System.out.println(driver.getTitle());
+	}
+
+	@And("user notes the price of Sony Experia.")
+	public void user_notes_the_price_of_sony_experia() {
+	    // Write code here that turns the phrase above into concrete actions
+		verifyprice.initalPrice();
+	    
+	}
+
+	@When("user clicks the Sony Experia mobile.")
+	public void user_clicks_the_sony_experia_mobile() {
+	    // Write code here that turns the phrase above into concrete actions
+		verifyprice.phonedetails();
+	    
+	}
+
+	@Then("user is navigated to Page Sony Xperia - Mobile.")
+	public void user_is_navigated_to_page_sony_xperia_mobile() {
+	    // Write code here that turns the phrase above into concrete actions
+		System.out.println(driver.getTitle());
+	    
+	}
+
+	@And("user checks the price of mobile here.")
+	public void user_checks_the_price_of_mobile_here() {
+	    // Write code here that turns the phrase above into concrete actions
+	    verifyprice.finaPrice();
+	}
+
+	@Then("user comapres the two prices.")
+	public void user_comapres_the_two_prices() {
+	    // Write code here that turns the phrase above into concrete actions
+		verifyprice.comparepPrice();
+	    
+	}
+
 	
 }
